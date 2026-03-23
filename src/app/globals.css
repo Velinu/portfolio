@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
+/* ─── Windows 2000 Theme ─────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Desktop */
+  --w2k-desktop:        #008080;
+
+  /* Window chrome */
+  --w2k-surface:        #d4d0c8;
+  --w2k-surface-dark:   #c0c0c0;
+  --w2k-text:           #000000;
+  --w2k-text-disabled:  #808080;
+  --w2k-text-white:     #ffffff;
+
+  /* Title bar (active) */
+  --w2k-title-from:     #000080;
+  --w2k-title-to:       #1084d0;
+
+  /* Title bar (inactive) */
+  --w2k-title-inactive-from: #808080;
+  --w2k-title-inactive-to:   #b5b5b5;
+
+  /* Taskbar */
+  --w2k-taskbar:        #c0c0c0;
+
+  /* Start button */
+  --w2k-start-from:     #1e7834;
+  --w2k-start-to:       #45a855;
+
+  /* Bevel colors */
+  --w2k-light:          #ffffff;
+  --w2k-mid-light:      #dfdfdf;
+  --w2k-mid-dark:       #808080;
+  --w2k-dark:           #404040;
+
+  /* Selection */
+  --w2k-select:         #000080;
+  --w2k-select-text:    #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Reset & base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Tahoma', 'Arial', sans-serif;
+  font-size: 11px;
+  color: var(--w2k-text);
+  background: var(--w2k-desktop);
+  user-select: none;
+  cursor: default;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Allow text selection inside windows */
+.w2k-selectable { user-select: text; cursor: text; }
+
+/* ─── Raised / Sunken bevel helpers ─────────────────────────── */
+.w2k-raised {
+  border-top:    1px solid var(--w2k-light);
+  border-left:   1px solid var(--w2k-light);
+  border-right:  1px solid var(--w2k-dark);
+  border-bottom: 1px solid var(--w2k-dark);
+  box-shadow: inset 1px 1px 0 var(--w2k-mid-light),
+              inset -1px -1px 0 var(--w2k-mid-dark);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.w2k-sunken {
+  border-top:    1px solid var(--w2k-dark);
+  border-left:   1px solid var(--w2k-dark);
+  border-right:  1px solid var(--w2k-light);
+  border-bottom: 1px solid var(--w2k-light);
+  box-shadow: inset 1px 1px 0 var(--w2k-mid-dark),
+              inset -1px -1px 0 var(--w2k-mid-light);
+}
+
+/* ─── Button ─────────────────────────────────────────────────── */
+.w2k-btn {
+  background: var(--w2k-surface);
+  color: var(--w2k-text);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 2px 8px;
+  min-width: 75px;
+  border-top:    1px solid var(--w2k-light);
+  border-left:   1px solid var(--w2k-light);
+  border-right:  1px solid var(--w2k-dark);
+  border-bottom: 1px solid var(--w2k-dark);
+  box-shadow: inset 1px 1px 0 var(--w2k-mid-light),
+              inset -1px -1px 0 var(--w2k-mid-dark);
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.w2k-btn:active, .w2k-btn.pressed {
+  border-top:    1px solid var(--w2k-dark);
+  border-left:   1px solid var(--w2k-dark);
+  border-right:  1px solid var(--w2k-light);
+  border-bottom: 1px solid var(--w2k-light);
+  box-shadow: inset 1px 1px 0 var(--w2k-mid-dark),
+              inset -1px -1px 0 var(--w2k-mid-light);
+  padding: 3px 7px 1px 9px;
+}
+
+/* ─── Input / Textarea ───────────────────────────────────────── */
+.w2k-input {
+  background: #ffffff;
+  color: var(--w2k-text);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 2px 4px;
+  border-top:    1px solid var(--w2k-dark);
+  border-left:   1px solid var(--w2k-dark);
+  border-right:  1px solid var(--w2k-light);
+  border-bottom: 1px solid var(--w2k-light);
+  box-shadow: inset 1px 1px 0 var(--w2k-mid-dark);
+  outline: none;
+  width: 100%;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 16px; height: 16px; }
+::-webkit-scrollbar-track { background: var(--w2k-surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--w2k-surface-dark);
+  border-top:    1px solid var(--w2k-light);
+  border-left:   1px solid var(--w2k-light);
+  border-right:  1px solid var(--w2k-dark);
+  border-bottom: 1px solid var(--w2k-dark);
+}
+::-webkit-scrollbar-button {
+  background: var(--w2k-surface);
+  border-top:    1px solid var(--w2k-light);
+  border-left:   1px solid var(--w2k-light);
+  border-right:  1px solid var(--w2k-dark);
+  border-bottom: 1px solid var(--w2k-dark);
+  display: block;
+  height: 16px;
+  width: 16px;
+}
+
+/* ─── Window title bar ───────────────────────────────────────── */
+.w2k-titlebar-active {
+  background: linear-gradient(to right, var(--w2k-title-from), var(--w2k-title-to));
+}
+.w2k-titlebar-inactive {
+  background: linear-gradient(to right, var(--w2k-title-inactive-from), var(--w2k-title-inactive-to));
+}
+
+/* ─── Separator ──────────────────────────────────────────────── */
+.w2k-separator {
+  border-top: 1px solid var(--w2k-mid-dark);
+  border-bottom: 1px solid var(--w2k-light);
+  margin: 2px 0;
+}
+
+/* ─── Menu item hover ────────────────────────────────────────── */
+.w2k-menu-item:hover {
+  background: var(--w2k-select);
+  color: var(--w2k-select-text);
 }
