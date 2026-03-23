@@ -1,20 +1,35 @@
 "use client";
 
+import { Profile, Project, Experience, Achievement, Post } from "@/lib/types";
 import { DesktopIcon } from "./DesktopIcon";
 import { Window } from "./Window";
 import { Taskbar } from "./Taskbar";
 import { WindowId } from "./WindowManager";
+import { AboutWindow } from "./windows/AboutWindow";
+import { ProjectsWindow } from "./windows/ProjectsWindow";
+import { ExperienceWindow } from "./windows/ExperienceWindow";
+import { AchievementsWindow } from "./windows/AchievementsWindow";
+import { BlogWindow } from "./windows/BlogWindow";
+import { ContactWindow } from "./windows/ContactWindow";
+
+interface DesktopProps {
+  profile: Profile | null;
+  projects: Project[];
+  experiences: Experience[];
+  achievements: Achievement[];
+  posts: Post[];
+}
 
 const ICONS: { id: WindowId; label: string; icon: string }[] = [
-  { id: "about",        label: "Sobre Mim",      icon: "👤" },
-  { id: "projects",     label: "Meus Projetos",  icon: "📁" },
+  { id: "about",        label: "Sobre Mim",       icon: "👤" },
+  { id: "projects",     label: "Meus Projetos",   icon: "📁" },
   { id: "experience",   label: "Experiência.doc", icon: "📄" },
-  { id: "achievements", label: "Conquistas",      icon: "🏆" },
-  { id: "blog",         label: "Blog.exe",        icon: "🌐" },
-  { id: "contact",      label: "Contato",         icon: "✉️" },
+  { id: "achievements", label: "Conquistas",       icon: "🏆" },
+  { id: "blog",         label: "Blog.exe",         icon: "🌐" },
+  { id: "contact",      label: "Contato",          icon: "✉️" },
 ];
 
-export function Desktop() {
+export function Desktop({ profile, projects, experiences, achievements, posts }: DesktopProps) {
   return (
     <div
       style={{
@@ -48,77 +63,27 @@ export function Desktop() {
 
         {/* Windows */}
         <Window id="about">
-          <AboutContent />
+          <AboutWindow profile={profile} />
         </Window>
         <Window id="projects">
-          <ProjectsContent />
+          <ProjectsWindow projects={projects} />
         </Window>
         <Window id="experience">
-          <ExperienceContent />
+          <ExperienceWindow experiences={experiences} />
         </Window>
         <Window id="achievements">
-          <AchievementsContent />
+          <AchievementsWindow achievements={achievements} />
         </Window>
         <Window id="blog">
-          <BlogContent />
+          <BlogWindow posts={posts} />
         </Window>
         <Window id="contact">
-          <ContactContent />
+          <ContactWindow />
         </Window>
       </div>
 
       {/* Taskbar */}
       <Taskbar />
-    </div>
-  );
-}
-
-/* ── Placeholder window contents (serão substituídos com dados reais) ── */
-
-function AboutContent() {
-  return (
-    <div className="w2k-selectable">
-      <p style={{ margin: 0 }}>👤 Carregando informações...</p>
-    </div>
-  );
-}
-
-function ProjectsContent() {
-  return (
-    <div className="w2k-selectable">
-      <p style={{ margin: 0 }}>📁 Nenhum projeto cadastrado ainda.</p>
-    </div>
-  );
-}
-
-function ExperienceContent() {
-  return (
-    <div className="w2k-selectable">
-      <p style={{ margin: 0 }}>📄 Experiência profissional em breve.</p>
-    </div>
-  );
-}
-
-function AchievementsContent() {
-  return (
-    <div className="w2k-selectable">
-      <p style={{ margin: 0 }}>🏆 Conquistas em breve.</p>
-    </div>
-  );
-}
-
-function BlogContent() {
-  return (
-    <div className="w2k-selectable">
-      <p style={{ margin: 0 }}>🌐 Nenhum post publicado ainda.</p>
-    </div>
-  );
-}
-
-function ContactContent() {
-  return (
-    <div className="w2k-selectable">
-      <p style={{ margin: 0 }}>✉️ Formulário de contato em breve.</p>
     </div>
   );
 }
