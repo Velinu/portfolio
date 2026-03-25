@@ -60,12 +60,12 @@ export function AboutWindow({ profile }: { profile: Profile | null }) {
 
       {/* System info box */}
       <div className="w2k-sunken" style={{ background: "#fff", padding: 8 }}>
-        <div style={{ fontWeight: "bold", marginBottom: 4 }}>Sobre este computador</div>
+        <div style={{ fontWeight: "bold", marginBottom: 4 }}>About this computer</div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px 16px", color: "#444" }}>
-          <span>Sistema Operacional:</span><span>Portfólio™ 2000</span>
-          <span>Processador:</span><span>Criatividade 9000 MHz</span>
-          <span>Memória RAM:</span><span>Infinita (cheia de ideias)</span>
-          <span>Disco Rígido:</span><span>GitHub (ilimitado)</span>
+          <span>Operating System:</span><span>Portfolio™ 2000</span>
+          <span>Processor:</span><span>Creativity 9000 MHz</span>
+          <span>RAM:</span><span>Infinite (full of ideas)</span>
+          <span>Hard Drive:</span><span>GitHub (unlimited)</span>
         </div>
       </div>
     </div>

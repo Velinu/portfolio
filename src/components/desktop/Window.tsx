@@ -15,7 +15,7 @@ export function Window({ id, children }: WindowProps) {
   const win = getWindow(id);
   if (!win || !win.isOpen || win.isMinimized) return null;
 
-  const isActive = true; // TODO: track activeWindowId in state
+  const isActive = true;
 
   return (
     <Rnd
@@ -65,6 +65,7 @@ export function Window({ id, children }: WindowProps) {
           <span
             style={{
               flex: 1,
+              minWidth: 0,
               color: "var(--w2k-text-white)",
               fontSize: 11,
               fontWeight: "bold",
@@ -77,13 +78,13 @@ export function Window({ id, children }: WindowProps) {
           </span>
 
           {/* Control buttons */}
-          <TitleBarButton onClick={() => minimizeWindow(id)} title="Minimizar">
+          <TitleBarButton onClick={() => minimizeWindow(id)} title="Minimize">
             <MinimizeIcon />
           </TitleBarButton>
-          <TitleBarButton onClick={() => {}} title="Maximizar" disabled>
+          <TitleBarButton onClick={() => { }} title="Maximize" disabled>
             <MaximizeIcon />
           </TitleBarButton>
-          <TitleBarButton onClick={() => closeWindow(id)} title="Fechar" isClose>
+          <TitleBarButton onClick={() => closeWindow(id)} title="Close" isClose>
             <CloseIcon />
           </TitleBarButton>
         </div>
@@ -132,7 +133,7 @@ function TitleBarButton({
       onClick={disabled ? undefined : onClick}
       title={title}
       style={{
-        width: 16,
+        width: 20,
         height: 14,
         background: "var(--w2k-surface)",
         border: "1px solid var(--w2k-light)",

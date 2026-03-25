@@ -26,7 +26,7 @@ export function DesktopIcon({ id, label, icon }: DesktopIconProps) {
         cursor: "default",
         color: "#fff",
       }}
-      title={`Abrir ${label}`}
+      title={`Open ${label}`}
     >
       <span style={{ fontSize: 36, lineHeight: 1, filter: "drop-shadow(1px 1px 1px #000)" }}>
         {icon}
@@ -36,7 +36,7 @@ export function DesktopIcon({ id, label, icon }: DesktopIconProps) {
           fontSize: 11,
           fontFamily: "Tahoma, Arial, sans-serif",
           textAlign: "center",
-          wordBreak: "break-word",
+          whiteSpace: "nowrap",
           textShadow: "1px 1px 1px #000",
           lineHeight: 1.2,
           maxWidth: 70,

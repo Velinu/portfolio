@@ -39,7 +39,7 @@ type Action =
 const INITIAL_WINDOWS: Omit<WindowState, "zIndex">[] = [
   {
     id: "about",
-    title: "Sobre Mim",
+    title: "About Me",
     icon: "👤",
     isOpen: false,
     isMinimized: false,
@@ -48,7 +48,7 @@ const INITIAL_WINDOWS: Omit<WindowState, "zIndex">[] = [
   },
   {
     id: "projects",
-    title: "Meus Projetos",
+    title: "My projects",
     icon: "📁",
     isOpen: false,
     isMinimized: false,
@@ -57,7 +57,7 @@ const INITIAL_WINDOWS: Omit<WindowState, "zIndex">[] = [
   },
   {
     id: "experience",
-    title: "Experiência.doc",
+    title: "Experience.doc",
     icon: "📄",
     isOpen: false,
     isMinimized: false,
@@ -66,7 +66,7 @@ const INITIAL_WINDOWS: Omit<WindowState, "zIndex">[] = [
   },
   {
     id: "achievements",
-    title: "Conquistas",
+    title: "Achievements",
     icon: "🏆",
     isOpen: false,
     isMinimized: false,
@@ -84,7 +84,7 @@ const INITIAL_WINDOWS: Omit<WindowState, "zIndex">[] = [
   },
   {
     id: "contact",
-    title: "Contato",
+    title: "Contact",
     icon: "✉️",
     isOpen: false,
     isMinimized: false,

@@ -9,7 +9,7 @@ export default async function AchievementsPage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
       <div style={{ fontWeight: "bold", fontSize: 13, borderBottom: "1px solid var(--w2k-mid-dark)", paddingBottom: 4 }}>
-        🏆 Conquistas
+        🏆 Achievements
       </div>
       <AchievementsAdmin achievements={achievements} categories={categories} />
     </div>

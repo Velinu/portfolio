@@ -15,7 +15,7 @@ export function Taskbar() {
     const tick = () => {
       const now = new Date();
       setTime(
-        now.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })
+        now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })
       );
     };
     tick();

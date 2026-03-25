@@ -36,7 +36,7 @@ export function ProjectsWindow({ projects }: { projects: Project[] }) {
           className="w2k-sunken"
           style={{ flex: 1, padding: "1px 4px", background: "#fff", fontSize: 11 }}
         >
-          C:\MeuPortfólio\Projetos
+          C:\MyPortfolio\Projects
         </div>
       </div>
 
@@ -124,7 +124,7 @@ export function ProjectsWindow({ projects }: { projects: Project[] }) {
                       rel="noopener noreferrer"
                       style={{ fontSize: 10, color: "#0000cc", textDecoration: "underline" }}
                     >
-                      🌐 Abrir projeto
+                      🌐 Open project
                     </a>
                   )}
                   {selectedProject.repoUrl && (

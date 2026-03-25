@@ -10,10 +10,10 @@ export default async function AdminDashboard() {
   ]);
 
   const stats = [
-    { label: "Projetos",    count: projectCount,     icon: "📁", href: "/admin/projects" },
-    { label: "Posts",       count: postCount,         icon: "📝", href: "/admin/posts" },
-    { label: "Conquistas",  count: achievementCount,  icon: "🏆", href: "/admin/achievements" },
-    { label: "Experiências",count: experienceCount,   icon: "📄", href: "/admin/experience" },
+    { label: "Projects", count: projectCount, icon: "📁", href: "/admin/projects" },
+    { label: "Posts", count: postCount, icon: "📝", href: "/admin/posts" },
+    { label: "Achievements", count: achievementCount, icon: "🏆", href: "/admin/achievements" },
+    { label: "Experiences", count: experienceCount, icon: "📄", href: "/admin/experience" },
   ];
 
   return (
@@ -57,10 +57,10 @@ export default async function AdminDashboard() {
       <div style={{ fontWeight: "bold", fontSize: 11, marginBottom: 4 }}>Ações rápidas</div>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         {[
-          { href: "/admin/projects",    label: "➕ Novo projeto" },
-          { href: "/admin/posts",       label: "✍️ Novo post" },
-          { href: "/admin/achievements",label: "🏆 Nova conquista" },
-          { href: "/admin/profile",     label: "👤 Editar perfil" },
+          { href: "/admin/projects", label: "➕ Novo projeto" },
+          { href: "/admin/posts", label: "✍️ Novo post" },
+          { href: "/admin/achievements", label: "🏆 Nova conquista" },
+          { href: "/admin/profile", label: "👤 Editar perfil" },
         ].map((action) => (
           <Link key={action.href} href={action.href}>
             <button className="w2k-btn">{action.label}</button>

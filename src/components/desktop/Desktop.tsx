@@ -21,12 +21,12 @@ interface DesktopProps {
 }
 
 const ICONS: { id: WindowId; label: string; icon: string }[] = [
-  { id: "about",        label: "Sobre Mim",       icon: "👤" },
-  { id: "projects",     label: "Meus Projetos",   icon: "📁" },
-  { id: "experience",   label: "Experiência.doc", icon: "📄" },
-  { id: "achievements", label: "Conquistas",       icon: "🏆" },
-  { id: "blog",         label: "Blog.exe",         icon: "🌐" },
-  { id: "contact",      label: "Contato",          icon: "✉️" },
+  { id: "about", label: "About Me", icon: "👤" },
+  { id: "projects", label: "My projects", icon: "📁" },
+  { id: "experience", label: "Experience.doc", icon: "📄" },
+  { id: "achievements", label: "Achievements", icon: "🏆" },
+  { id: "blog", label: "Blog.exe", icon: "🌐" },
+  { id: "contact", label: "Contact", icon: "✉️" },
 ];
 
 export function Desktop({ profile, projects, experiences, achievements, posts }: DesktopProps) {

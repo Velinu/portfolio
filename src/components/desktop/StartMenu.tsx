@@ -8,12 +8,12 @@ interface StartMenuProps {
 }
 
 const MENU_ITEMS: { id: WindowId; label: string; icon: string }[] = [
-  { id: "about",        label: "Sobre Mim",      icon: "👤" },
-  { id: "projects",     label: "Meus Projetos",  icon: "📁" },
-  { id: "experience",   label: "Experiência",    icon: "📄" },
-  { id: "achievements", label: "Conquistas",      icon: "🏆" },
-  { id: "blog",         label: "Blog.exe",        icon: "🌐" },
-  { id: "contact",      label: "Contato",         icon: "✉️" },
+  { id: "about", label: "About Me", icon: "👤" },
+  { id: "projects", label: "My projects", icon: "📁" },
+  { id: "experience", label: "Experience.doc", icon: "📄" },
+  { id: "achievements", label: "Achievements", icon: "🏆" },
+  { id: "blog", label: "Blog.exe", icon: "🌐" },
+  { id: "contact", label: "Contact", icon: "✉️" },
 ];
 
 export function StartMenu({ onClose }: StartMenuProps) {
@@ -58,7 +58,7 @@ export function StartMenu({ onClose }: StartMenuProps) {
         >
           <span style={{ fontSize: 28, lineHeight: 1 }}>👤</span>
           <span style={{ color: "#fff", fontWeight: "bold", fontSize: 13, lineHeight: 1 }}>
-            Portfólio
+            Portfolio
           </span>
         </div>
 
@@ -109,7 +109,7 @@ export function StartMenu({ onClose }: StartMenuProps) {
             }}
           >
             <span style={{ fontSize: 16, width: 20 }}>🖥️</span>
-            Sobre este computador
+            About this computer
           </button>
 
           <div className="w2k-separator" style={{ margin: "4px 8px" }} />
@@ -133,7 +133,7 @@ export function StartMenu({ onClose }: StartMenuProps) {
             }}
           >
             <span style={{ fontSize: 16, width: 20 }}>⏻</span>
-            Desligar o computador...
+            Shut down...
           </button>
         </div>
       </div>
@@ -179,7 +179,7 @@ function ShutdownDialog({ onClose }: { onClose: () => void }) {
         >
           <span style={{ fontSize: 14 }}>🖥️</span>
           <span style={{ color: "#fff", fontWeight: "bold", fontSize: 11, flex: 1 }}>
-            Desligar o Windows
+            Shut Down Windows
           </span>
         </div>
 
@@ -188,11 +188,11 @@ function ShutdownDialog({ onClose }: { onClose: () => void }) {
           <span style={{ fontSize: 40 }}>⚠️</span>
           <div className="w2k-selectable">
             <p style={{ margin: "0 0 8px", fontWeight: "bold" }}>
-              Tem certeza que deseja sair?
+              Are you sure you want to quit?
             </p>
             <p style={{ margin: 0, color: "#444" }}>
-              Este portfólio não pode ser desligado — ele existe para te impressionar.
-              Tente novamente quando o universo permitir. 😄
+              This portfolio cannot be shut down — it exists to impress you.
+              Try again when the universe allows it. 😄
             </p>
           </div>
         </div>
@@ -210,7 +210,7 @@ function ShutdownDialog({ onClose }: { onClose: () => void }) {
             OK
           </button>
           <button className="w2k-btn" onClick={onClose} style={{ minWidth: 80 }}>
-            Cancelar
+            Cancel
           </button>
         </div>
       </div>

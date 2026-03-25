@@ -7,8 +7,5 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Campos obrigatórios ausentes." }, { status: 400 });
   }
 
-  // Log contact for now — integrate with email service (Resend, SendGrid) later
-  console.log("[Contato]", { name, email, message });
-
   return NextResponse.json({ ok: true });
 }

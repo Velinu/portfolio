@@ -139,8 +139,6 @@ Fique ligado!`,
       published: true,
     },
   });
-
-  console.log("✅ Seed concluído com sucesso!");
 }
 
 main()

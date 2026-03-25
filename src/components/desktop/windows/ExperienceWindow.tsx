@@ -107,5 +107,5 @@ export function ExperienceWindow({ experiences }: { experiences: Experience[] })
 }
 
 function formatDate(date: Date) {
-  return new Date(date).toLocaleDateString("pt-BR", { month: "short", year: "numeric" });
+  return new Date(date).toLocaleDateString("en-US", { month: "short", year: "numeric" });
 }

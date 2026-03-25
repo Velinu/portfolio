@@ -102,7 +102,7 @@ function AchievementRow({ achievement }: { achievement: Achievement }) {
         <div style={{ fontWeight: "bold", fontSize: 11 }}>{achievement.title}</div>
         <div style={{ fontSize: 10, color: "#555", marginTop: 2 }}>{achievement.description}</div>
         <div style={{ fontSize: 10, color: "#888", marginTop: 2 }}>
-          {new Date(achievement.date).toLocaleDateString("pt-BR", { month: "long", year: "numeric" })}
+          {new Date(achievement.date).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
           {" · "}
           <span
             style={{

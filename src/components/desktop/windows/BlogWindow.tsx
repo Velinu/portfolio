@@ -129,7 +129,7 @@ function PostList({ posts, onOpen }: { posts: Post[]; onOpen: (post: Post) => vo
             {post.title}
           </button>
           <div style={{ fontSize: 10, color: "#666", marginTop: 2 }}>
-            {new Date(post.createdAt).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+            {new Date(post.createdAt).toLocaleDateString("en-US", { day: "2-digit", month: "long", year: "numeric" })}
           </div>
         </div>
       ))}
@@ -154,14 +154,14 @@ function PostContent({ post, onBack }: { post: Post; onBack: () => void }) {
           padding: 0,
         }}
       >
-        ◀ Voltar para o blog
+        ◀ Back to blog
       </button>
 
       <h1 style={{ fontSize: 20, borderBottom: "2px solid #000080", paddingBottom: 6, marginBottom: 8 }}>
         {post.title}
       </h1>
       <div style={{ fontSize: 10, color: "#666", marginBottom: 16 }}>
-        Publicado em {new Date(post.createdAt).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+        Published on {new Date(post.createdAt).toLocaleDateString("en-US", { day: "2-digit", month: "long", year: "numeric" })}
       </div>
 
       {/* Render markdown as plain text (Phase 3 - simple render) */}
