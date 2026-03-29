@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { WindowManagerProvider } from "@/components/desktop/WindowManager";
 import { Desktop } from "@/components/desktop/Desktop";
+import { Providers } from "@/components/Providers";
 
 export default async function Home() {
   const [profile, projects, experiences, achievements, posts] = await Promise.all([
@@ -18,14 +19,16 @@ export default async function Home() {
   ]);
 
   return (
-    <WindowManagerProvider>
-      <Desktop
-        profile={profile}
-        projects={projects}
-        experiences={experiences}
-        achievements={achievements}
-        posts={posts}
-      />
-    </WindowManagerProvider>
+    <Providers>
+      <WindowManagerProvider>
+        <Desktop
+          profile={profile}
+          projects={projects}
+          experiences={experiences}
+          achievements={achievements}
+          posts={posts}
+        />
+      </WindowManagerProvider>
+    </Providers>
   );
 }

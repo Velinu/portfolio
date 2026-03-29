@@ -4,17 +4,17 @@ import { useState } from "react";
 import { Achievement } from "@/lib/types";
 
 export function AchievementsWindow({ achievements }: { achievements: Achievement[] }) {
-  const [activeCategory, setActiveCategory] = useState<string>("todas");
+  const [activeCategory, setActiveCategory] = useState<string>("all");
 
   const categories = [
-    { slug: "todas", name: "Todas" },
+    { slug: "all", name: "all" },
     ...Array.from(
       new Map(achievements.map((a) => [a.category.slug, a.category])).values()
     ),
   ];
 
   const filtered =
-    activeCategory === "todas"
+    activeCategory === "all"
       ? achievements
       : achievements.filter((a) => a.category.slug === activeCategory);
 
@@ -73,7 +73,7 @@ export function AchievementsWindow({ achievements }: { achievements: Achievement
         className="w2k-sunken"
         style={{ padding: "1px 6px", fontSize: 10, color: "#444", flexShrink: 0 }}
       >
-        {filtered.length} conquista(s) · {activeCategory === "todas" ? "Todas as categorias" : categories.find(c => c.slug === activeCategory)?.name}
+        {filtered.length} conquista(s) · {activeCategory === "all" ? "all as categorias" : categories.find(c => c.slug === activeCategory)?.name}
       </div>
     </div>
   );
