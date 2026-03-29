@@ -103,9 +103,9 @@ function SuccessDialog() {
     <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "center", padding: 16 }}>
       <span style={{ fontSize: 48 }}>✅</span>
       <div style={{ textAlign: "center" }}>
-        <p style={{ fontWeight: "bold", marginBottom: 4 }}>Mensagem enviada!</p>
+        <p style={{ fontWeight: "bold", marginBottom: 4 }}>Message sent!</p>
         <p style={{ fontSize: 11, color: "#444" }}>
-          Sua mensagem foi enviada com sucesso. Responderei em breve.
+          Your message was sent successfully. I&apos;ll get back to you soon.
         </p>
       </div>
     </div>

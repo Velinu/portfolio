@@ -34,7 +34,7 @@ export function ProfileForm({ profile }: { profile: Profile | null }) {
 
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 520 }}>
-      <Field label="Nome *" value={form.name} onChange={(v) => setForm((f) => ({ ...f, name: v }))} required />
+      <Field label="Name *" value={form.name} onChange={(v) => setForm((f) => ({ ...f, name: v }))} required />
       <Field label="Bio *" value={form.bio} onChange={(v) => setForm((f) => ({ ...f, bio: v }))} textarea required />
       <Field label="Avatar URL" value={form.avatarUrl} onChange={(v) => setForm((f) => ({ ...f, avatarUrl: v }))} />
       <Field label="GitHub" value={form.github} onChange={(v) => setForm((f) => ({ ...f, github: v }))} />
@@ -44,9 +44,9 @@ export function ProfileForm({ profile }: { profile: Profile | null }) {
       <div className="w2k-separator" />
       <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
         <button type="submit" className="w2k-btn" disabled={pending} style={{ minWidth: 80 }}>
-          {pending ? "Salvando..." : "Salvar"}
+          {pending ? "Saving..." : "Save"}
         </button>
-        {saved && <span style={{ fontSize: 11, color: "#007700" }}>✅ Salvo com sucesso!</span>}
+        {saved && <span style={{ fontSize: 11, color: "#007700" }}>✅ Saved successfully!</span>}
       </div>
     </form>
   );

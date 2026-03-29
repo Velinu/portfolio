@@ -21,7 +21,7 @@ export default function LoginPage() {
     });
     setLoading(false);
     if (res?.error) {
-      setError("E-mail ou senha inválidos.");
+      setError("Invalid email or password.");
     } else {
       router.push("/admin");
     }
@@ -51,7 +51,7 @@ export default function LoginPage() {
         >
           <span style={{ fontSize: 14 }}>🔐</span>
           <span style={{ color: "#fff", fontWeight: "bold", fontSize: 11 }}>
-            Entrar no Windows — Portfólio Admin
+            Log On to Windows — Portfolio Admin
           </span>
         </div>
 
@@ -60,9 +60,9 @@ export default function LoginPage() {
           <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
             <span style={{ fontSize: 36 }}>🖥️</span>
             <div>
-              <div style={{ fontWeight: "bold", marginBottom: 2 }}>Painel Administrativo</div>
+              <div style={{ fontWeight: "bold", marginBottom: 2 }}>Admin Panel</div>
               <div style={{ fontSize: 10, color: "#555" }}>
-                Digite suas credenciais para acessar o sistema.
+                Enter your credentials to access the system.
               </div>
             </div>
           </div>
@@ -70,17 +70,17 @@ export default function LoginPage() {
           <div className="w2k-separator" />
 
           <form onSubmit={handleCredentials} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <FormRow label="Usuário:">
+            <FormRow label="User:">
               <input
                 className="w2k-input"
                 type="email"
-                placeholder="seuemail@exemplo.com"
+                placeholder="youremail@example.com"
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                 required
               />
             </FormRow>
-            <FormRow label="Senha:">
+            <FormRow label="Password:">
               <input
                 className="w2k-input"
                 type="password"
@@ -101,7 +101,7 @@ export default function LoginPage() {
 
             <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
               <button type="submit" className="w2k-btn" disabled={loading} style={{ minWidth: 80 }}>
-                {loading ? "Entrando..." : "OK"}
+                {loading ? "Signing in..." : "OK"}
               </button>
             </div>
           </form>
@@ -114,7 +114,7 @@ export default function LoginPage() {
             className="w2k-btn"
             style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, justifyContent: "center" }}
           >
-            <span>🌐</span> Entrar com Google
+            <span>🌐</span> Sign in with Google
           </button>
         </div>
       </div>

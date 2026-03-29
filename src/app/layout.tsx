@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Portfólio — Windows 2000 Edition",
-  description: "Meu portfólio pessoal com projetos, conquistas e experiência profissional.",
+  title: "Portfolio — Windows 2000 Edition",
+  description: "My personal portfolio with projects, achievements, and professional experience.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" style={{ height: "100%" }}>
+    <html lang="en" style={{ height: "100%" }}>
       <body style={{ height: "100%", margin: 0 }}>{children}</body>
     </html>
   );

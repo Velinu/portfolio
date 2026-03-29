@@ -40,13 +40,13 @@ export function ExperienceAdmin({ experiences }: { experiences: Experience[] }) 
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div><button className="w2k-btn" onClick={() => { setForm(EMPTY); setEditing(null); setShowForm(true); }}>➕ Nova experiência</button></div>
+      <div><button className="w2k-btn" onClick={() => { setForm(EMPTY); setEditing(null); setShowForm(true); }}>➕ New experience</button></div>
 
       <AdminTable
         columns={[
-          { header: "Empresa", render: (e) => e.company, width: 140 },
-          { header: "Cargo", render: (e) => e.role, width: 160 },
-          { header: "Período", render: (e) => `${toDateInput(e.startDate)} → ${e.current ? "Atual" : toDateInput(e.endDate)}`, width: 180 },
+          { header: "Company", render: (e) => e.company, width: 140 },
+          { header: "Role", render: (e) => e.role, width: 160 },
+          { header: "Period", render: (e) => `${toDateInput(e.startDate)} → ${e.current ? "Current" : toDateInput(e.endDate)}`, width: 180 },
         ]}
         rows={experiences}
         onEdit={handleEdit}
@@ -54,21 +54,21 @@ export function ExperienceAdmin({ experiences }: { experiences: Experience[] }) 
       />
 
       {showForm && (
-        <Dialog title={editing ? "Editar experiência" : "Nova experiência"} onClose={() => setShowForm(false)}>
+        <Dialog title={editing ? "Edit experience" : "New experience"} onClose={() => setShowForm(false)}>
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <Field label="Empresa *" value={form.company} onChange={(v) => setForm((f) => ({ ...f, company: v }))} required />
-            <Field label="Cargo *" value={form.role} onChange={(v) => setForm((f) => ({ ...f, role: v }))} required />
-            <Field label="Descrição *" value={form.description} onChange={(v) => setForm((f) => ({ ...f, description: v }))} textarea required />
-            <Field label="Início *" value={form.startDate} onChange={(v) => setForm((f) => ({ ...f, startDate: v }))} type="date" required />
-            {!form.current && <Field label="Fim" value={form.endDate} onChange={(v) => setForm((f) => ({ ...f, endDate: v }))} type="date" />}
+            <Field label="Company *" value={form.company} onChange={(v) => setForm((f) => ({ ...f, company: v }))} required />
+            <Field label="Role *" value={form.role} onChange={(v) => setForm((f) => ({ ...f, role: v }))} required />
+            <Field label="Description *" value={form.description} onChange={(v) => setForm((f) => ({ ...f, description: v }))} textarea required />
+            <Field label="Start *" value={form.startDate} onChange={(v) => setForm((f) => ({ ...f, startDate: v }))} type="date" required />
+            {!form.current && <Field label="End" value={form.endDate} onChange={(v) => setForm((f) => ({ ...f, endDate: v }))} type="date" />}
             <div style={{ display: "flex", gap: 8, alignItems: "center", marginLeft: 100 }}>
               <input type="checkbox" id="current" checked={form.current} onChange={(e) => setForm((f) => ({ ...f, current: e.target.checked }))} />
-              <label htmlFor="current" style={{ fontSize: 11 }}>Emprego atual</label>
+              <label htmlFor="current" style={{ fontSize: 11 }}>Current job</label>
             </div>
             <div className="w2k-separator" />
             <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-              <button type="submit" className="w2k-btn" disabled={pending}>{pending ? "Salvando..." : "Salvar"}</button>
-              <button type="button" className="w2k-btn" onClick={() => setShowForm(false)}>Cancelar</button>
+              <button type="submit" className="w2k-btn" disabled={pending}>{pending ? "Saving..." : "Save"}</button>
+              <button type="button" className="w2k-btn" onClick={() => setShowForm(false)}>Cancel</button>
             </div>
           </form>
         </Dialog>

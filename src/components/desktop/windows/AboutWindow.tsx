@@ -4,7 +4,7 @@ import { Profile } from "@/lib/types";
 
 export function AboutWindow({ profile }: { profile: Profile | null }) {
   if (!profile) {
-    return <EmptyState icon="👤" message="Perfil não configurado." />;
+    return <EmptyState icon="👤" message="Profile not configured." />;
   }
 
   return (
@@ -101,7 +101,7 @@ function Toolbar() {
         marginBottom: 4,
       }}
     >
-      {["Arquivo", "Editar", "Exibir", "Favoritos", "Ajuda"].map((item) => (
+      {["File", "Edit", "View", "Favorites", "Help"].map((item) => (
         <span
           key={item}
           style={{ padding: "2px 6px", fontSize: 11, cursor: "default" }}

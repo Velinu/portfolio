@@ -4,17 +4,17 @@ import { useState } from "react";
 import { Post } from "@/lib/types";
 
 export function BlogWindow({ posts }: { posts: Post[] }) {
-  const [currentPath, setCurrentPath] = useState("C:\\MeuSite\\blog");
+  const [currentPath, setCurrentPath] = useState("C:\\MyWebsite\\blog");
   const [openPost, setOpenPost] = useState<Post | null>(null);
 
   function openPostPage(post: Post) {
     setOpenPost(post);
-    setCurrentPath(`C:\\MeuSite\\blog\\${post.slug}.html`);
+    setCurrentPath(`C:\\MyWebsite\\blog\\${post.slug}.html`);
   }
 
   function goBack() {
     setOpenPost(null);
-    setCurrentPath("C:\\MeuSite\\blog");
+    setCurrentPath("C:\\MyWebsite\\blog");
   }
 
   return (
@@ -32,23 +32,23 @@ export function BlogWindow({ posts }: { posts: Post[] }) {
           flexWrap: "wrap",
         }}
       >
-        <button className="w2k-btn" onClick={goBack} style={{ minWidth: "auto", padding: "1px 6px", fontSize: 11 }} title="Voltar">
-          ◀ Voltar
+        <button className="w2k-btn" onClick={goBack} style={{ minWidth: "auto", padding: "1px 6px", fontSize: 11 }} title="Back">
+          ◀ Back
         </button>
-        <button className="w2k-btn" style={{ minWidth: "auto", padding: "1px 6px", fontSize: 11 }} title="Avançar" disabled>
-          Avançar ▶
+        <button className="w2k-btn" style={{ minWidth: "auto", padding: "1px 6px", fontSize: 11 }} title="Forward" disabled>
+          Forward ▶
         </button>
-        <button className="w2k-btn" style={{ minWidth: "auto", padding: "1px 6px", fontSize: 11 }} title="Atualizar">
+        <button className="w2k-btn" style={{ minWidth: "auto", padding: "1px 6px", fontSize: 11 }} title="Refresh">
           🔄
         </button>
-        <button className="w2k-btn" style={{ minWidth: "auto", padding: "1px 6px", fontSize: 11 }} title="Página inicial">
+        <button className="w2k-btn" style={{ minWidth: "auto", padding: "1px 6px", fontSize: 11 }} title="Home">
           🏠
         </button>
         <div className="w2k-separator" style={{ width: 1, height: 20 }} />
 
         {/* Address bar */}
         <div style={{ display: "flex", alignItems: "center", gap: 4, flex: 1 }}>
-          <span style={{ fontSize: 11, flexShrink: 0 }}>Endereço:</span>
+          <span style={{ fontSize: 11, flexShrink: 0 }}>Address:</span>
           <div
             className="w2k-sunken"
             style={{ flex: 1, padding: "1px 4px", background: "#fff", fontSize: 11, fontFamily: "monospace" }}
@@ -56,7 +56,7 @@ export function BlogWindow({ posts }: { posts: Post[] }) {
             {currentPath}
           </div>
           <button className="w2k-btn" style={{ minWidth: "auto", padding: "1px 8px", fontSize: 11 }}>
-            Ir
+            Go
           </button>
         </div>
       </div>
@@ -78,7 +78,7 @@ export function BlogWindow({ posts }: { posts: Post[] }) {
         className="w2k-sunken"
         style={{ padding: "1px 6px", fontSize: 10, color: "#444", flexShrink: 0, display: "flex", justifyContent: "space-between" }}
       >
-        <span>{openPost ? "Página carregada" : `${posts.length} post(s) disponível(is)`}</span>
+        <span>{openPost ? "Page loaded" : `${posts.length} post(s) available`}</span>
         <span>Internet</span>
       </div>
     </div>
@@ -90,9 +90,9 @@ function PostList({ posts, onOpen }: { posts: Post[]; onOpen: (post: Post) => vo
     return (
       <div style={{ textAlign: "center", padding: 24, color: "#666" }}>
         <div style={{ fontSize: 32, marginBottom: 8 }}>🌐</div>
-        <div>Nenhum post publicado ainda.</div>
+        <div>No posts published yet.</div>
         <div style={{ fontSize: 10, color: "#999", marginTop: 4 }}>
-          A página não pode ser exibida.
+          The page cannot be displayed.
         </div>
       </div>
     );

@@ -6,11 +6,11 @@ import { signOut } from "next-auth/react";
 
 const NAV_ITEMS = [
   { href: "/admin",                       label: "Dashboard",   icon: "🖥️" },
-  { href: "/admin/profile",               label: "Perfil",      icon: "👤" },
-  { href: "/admin/projects",              label: "Projetos",    icon: "📁" },
-  { href: "/admin/experience",            label: "Experiência", icon: "📄" },
-  { href: "/admin/achievements",          label: "Conquistas",  icon: "🏆" },
-  { href: "/admin/achievements/categories", label: "Categorias", icon: "🏷️" },
+  { href: "/admin/profile",               label: "Profile",     icon: "👤" },
+  { href: "/admin/projects",              label: "Projects",    icon: "📁" },
+  { href: "/admin/experience",            label: "Experience",  icon: "📄" },
+  { href: "/admin/achievements",          label: "Achievements", icon: "🏆" },
+  { href: "/admin/achievements/categories", label: "Categories", icon: "🏷️" },
   { href: "/admin/posts",                 label: "Posts",       icon: "📝" },
 ];
 
@@ -56,7 +56,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         >
           <span style={{ fontSize: 14 }}>⚙️</span>
           <span style={{ color: "#fff", fontWeight: "bold", fontSize: 11, flex: 1 }}>
-            Gerenciamento do Portfólio
+            Portfolio Management
           </span>
           <button
             onClick={() => signOut({ callbackUrl: "/admin/login" })}
@@ -69,7 +69,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
               color: "var(--w2k-text)",
             }}
           >
-            Sair
+            Sign out
           </button>
         </div>
 
@@ -83,7 +83,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             flexShrink: 0,
           }}
         >
-          {["Arquivo", "Exibir", "Ajuda"].map((item) => (
+          {["File", "View", "Help"].map((item) => (
             <span
               key={item}
               className="w2k-menu-item"
@@ -116,7 +116,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
                 fontWeight: "bold",
               }}
             >
-              Portfólio Admin
+              Portfolio Admin
             </div>
             {NAV_ITEMS.map((item) => {
               const isActive = item.href === "/admin"
@@ -169,8 +169,8 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             justifyContent: "space-between",
           }}
         >
-          <span>Painel Administrativo</span>
-          <span>{new Date().toLocaleDateString("pt-BR")}</span>
+          <span>Admin Panel</span>
+          <span>{new Date().toLocaleDateString("en-US")}</span>
         </div>
       </div>
     </div>

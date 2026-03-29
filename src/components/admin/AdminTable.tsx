@@ -44,7 +44,7 @@ export function AdminTable<T extends { id: string }>({
               </th>
             ))}
             {(onEdit || onDelete) && (
-              <th style={{ padding: "3px 8px", width: 80 }}>Ações</th>
+              <th style={{ padding: "3px 8px", width: 80 }}>Actions</th>
             )}
           </tr>
         </thead>
@@ -55,7 +55,7 @@ export function AdminTable<T extends { id: string }>({
                 colSpan={columns.length + 1}
                 style={{ padding: 16, textAlign: "center", color: "#666" }}
               >
-                Nenhum registro encontrado.
+                No records found.
               </td>
             </tr>
           ) : (

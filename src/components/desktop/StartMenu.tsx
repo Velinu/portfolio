@@ -90,7 +90,7 @@ export function StartMenu({ onClose }: StartMenuProps) {
 
           <div className="w2k-separator" style={{ margin: "4px 8px" }} />
 
-          {/* Sobre este computador */}
+          {/* About this computer */}
           <button
             onClick={() => { handleOpen("about"); }}
             className="w2k-menu-item"
@@ -114,7 +114,7 @@ export function StartMenu({ onClose }: StartMenuProps) {
 
           <div className="w2k-separator" style={{ margin: "4px 8px" }} />
 
-          {/* Desligar */}
+          {/* Shut down */}
           <button
             onClick={handleShutdown}
             className="w2k-menu-item"

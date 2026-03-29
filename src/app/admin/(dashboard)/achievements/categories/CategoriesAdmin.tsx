@@ -26,25 +26,25 @@ export function CategoriesAdmin({ categories }: { categories: Category[] }) {
       <form onSubmit={handleSubmit} style={{ display: "flex", gap: 8, alignItems: "center" }}>
         <input
           className="w2k-input"
-          placeholder="Nome da categoria (ex: Certificação)"
+          placeholder="Category name (e.g.: Certification)"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
           style={{ width: 240 }}
         />
         <button type="submit" className="w2k-btn" disabled={pending} style={{ minWidth: 80 }}>
-          {editing ? "Atualizar" : "➕ Adicionar"}
+          {editing ? "Update" : "➕ Add"}
         </button>
         {editing && (
           <button type="button" className="w2k-btn" onClick={() => { setEditing(null); setName(""); }}>
-            Cancelar
+            Cancel
           </button>
         )}
       </form>
 
       <AdminTable
         columns={[
-          { header: "Nome", render: (c) => c.name, width: 200 },
+          { header: "Name", render: (c) => c.name, width: 200 },
           { header: "Slug", render: (c) => c.slug, width: 200 },
         ]}
         rows={categories}

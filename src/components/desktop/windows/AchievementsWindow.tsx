@@ -59,7 +59,7 @@ export function AchievementsWindow({ achievements }: { achievements: Achievement
       >
         {filtered.length === 0 ? (
           <div style={{ textAlign: "center", padding: 24, color: "#666" }}>
-            Nenhuma conquista nesta categoria.
+            No achievements in this category.
           </div>
         ) : (
           filtered.map((achievement) => (
@@ -73,7 +73,7 @@ export function AchievementsWindow({ achievements }: { achievements: Achievement
         className="w2k-sunken"
         style={{ padding: "1px 6px", fontSize: 10, color: "#444", flexShrink: 0 }}
       >
-        {filtered.length} conquista(s) · {activeCategory === "all" ? "all as categorias" : categories.find(c => c.slug === activeCategory)?.name}
+        {filtered.length} achievement(s) · {activeCategory === "all" ? "all categories" : categories.find(c => c.slug === activeCategory)?.name}
       </div>
     </div>
   );

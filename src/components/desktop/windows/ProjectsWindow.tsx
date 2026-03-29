@@ -10,7 +10,7 @@ export function ProjectsWindow({ projects }: { projects: Project[] }) {
     return (
       <div style={{ textAlign: "center", padding: 24, color: "#666" }}>
         <div style={{ fontSize: 32, marginBottom: 8 }}>📁</div>
-        <div>Esta pasta está vazia.</div>
+        <div>This folder is empty.</div>
       </div>
     );
   }
@@ -31,7 +31,7 @@ export function ProjectsWindow({ projects }: { projects: Project[] }) {
           flexShrink: 0,
         }}
       >
-        <span style={{ fontSize: 11, color: "#666" }}>Endereço:</span>
+        <span style={{ fontSize: 11, color: "#666" }}>Address:</span>
         <div
           className="w2k-sunken"
           style={{ flex: 1, padding: "1px 4px", background: "#fff", fontSize: 11 }}
@@ -108,7 +108,7 @@ export function ProjectsWindow({ projects }: { projects: Project[] }) {
             <div style={{ fontSize: 10, color: "#444" }}>{selectedProject.description}</div>
             <div className="w2k-separator" />
             <div style={{ fontSize: 10 }}>
-              <strong>Tecnologias:</strong>
+              <strong>Technologies:</strong>
               <div style={{ marginTop: 2, color: "#444" }}>
                 {selectedProject.techs.join(", ")}
               </div>
@@ -134,7 +134,7 @@ export function ProjectsWindow({ projects }: { projects: Project[] }) {
                       rel="noopener noreferrer"
                       style={{ fontSize: 10, color: "#0000cc", textDecoration: "underline" }}
                     >
-                      🐙 Ver código
+                      🐙 View code
                     </a>
                   )}
                 </div>
@@ -155,8 +155,8 @@ export function ProjectsWindow({ projects }: { projects: Project[] }) {
           borderTop: "none",
         }}
       >
-        {projects.length} objeto(s)
-        {selected && ` · ${selectedProject?.title} selecionado`}
+        {projects.length} item(s)
+        {selected && ` · ${selectedProject?.title} selected`}
       </div>
     </div>
   );

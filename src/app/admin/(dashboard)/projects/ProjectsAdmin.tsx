@@ -42,14 +42,14 @@ export function ProjectsAdmin({ projects }: { projects: Project[] }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       <div>
-        <button className="w2k-btn" onClick={handleNew}>➕ Novo projeto</button>
+        <button className="w2k-btn" onClick={handleNew}>➕ New project</button>
       </div>
 
       <AdminTable
         columns={[
-          { header: "Título", render: (p) => p.title, width: 180 },
+          { header: "Title", render: (p) => p.title, width: 180 },
           { header: "Techs", render: (p) => p.techs.join(", "), width: 180 },
-          { header: "Destaque", render: (p) => p.featured ? "⭐ Sim" : "Não", width: 70 },
+          { header: "Featured", render: (p) => p.featured ? "⭐ Yes" : "No", width: 70 },
         ]}
         rows={projects}
         onEdit={handleEdit}
@@ -57,21 +57,21 @@ export function ProjectsAdmin({ projects }: { projects: Project[] }) {
       />
 
       {showForm && (
-        <Dialog title={editing ? "Editar projeto" : "Novo projeto"} onClose={() => setShowForm(false)}>
+        <Dialog title={editing ? "Edit project" : "New project"} onClose={() => setShowForm(false)}>
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <Field label="Título *" value={form.title} onChange={(v) => setForm((f) => ({ ...f, title: v }))} required />
-            <Field label="Descrição *" value={form.description} onChange={(v) => setForm((f) => ({ ...f, description: v }))} textarea required />
+            <Field label="Title *" value={form.title} onChange={(v) => setForm((f) => ({ ...f, title: v }))} required />
+            <Field label="Description *" value={form.description} onChange={(v) => setForm((f) => ({ ...f, description: v }))} textarea required />
             <Field label="Techs *" value={form.techs} onChange={(v) => setForm((f) => ({ ...f, techs: v }))} placeholder="React, Node.js, ..." required />
             <Field label="URL" value={form.url} onChange={(v) => setForm((f) => ({ ...f, url: v }))} />
             <Field label="Repo URL" value={form.repoUrl} onChange={(v) => setForm((f) => ({ ...f, repoUrl: v }))} />
             <div style={{ display: "flex", gap: 8, alignItems: "center", marginLeft: 100 }}>
               <input type="checkbox" id="featured" checked={form.featured} onChange={(e) => setForm((f) => ({ ...f, featured: e.target.checked }))} />
-              <label htmlFor="featured" style={{ fontSize: 11 }}>Projeto em destaque</label>
+              <label htmlFor="featured" style={{ fontSize: 11 }}>Featured project</label>
             </div>
             <div className="w2k-separator" />
             <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-              <button type="submit" className="w2k-btn" disabled={pending}>{pending ? "Salvando..." : "Salvar"}</button>
-              <button type="button" className="w2k-btn" onClick={() => setShowForm(false)}>Cancelar</button>
+              <button type="submit" className="w2k-btn" disabled={pending}>{pending ? "Saving..." : "Save"}</button>
+              <button type="button" className="w2k-btn" onClick={() => setShowForm(false)}>Cancel</button>
             </div>
           </form>
         </Dialog>

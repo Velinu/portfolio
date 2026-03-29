@@ -7,7 +7,7 @@ export function ExperienceWindow({ experiences }: { experiences: Experience[] })
     return (
       <div style={{ textAlign: "center", padding: 24, color: "#666" }}>
         <div style={{ fontSize: 32, marginBottom: 8 }}>📄</div>
-        <div>Nenhuma experiência cadastrada.</div>
+        <div>No experience entries found.</div>
       </div>
     );
   }
@@ -27,7 +27,7 @@ export function ExperienceWindow({ experiences }: { experiences: Experience[] })
           flexWrap: "wrap",
         }}
       >
-        {["📋 Copiar", "🖨️ Imprimir", "🔍 Localizar"].map((item) => (
+        {["📋 Copy", "🖨️ Print", "🔍 Find"].map((item) => (
           <button key={item} className="w2k-btn" style={{ minWidth: "auto", padding: "1px 6px", fontSize: 10 }}>
             {item}
           </button>
@@ -55,7 +55,7 @@ export function ExperienceWindow({ experiences }: { experiences: Experience[] })
             paddingBottom: 8,
           }}
         >
-          Experiência Profissional
+          Professional Experience
         </h1>
 
         {experiences.map((exp, i) => (
@@ -69,7 +69,7 @@ export function ExperienceWindow({ experiences }: { experiences: Experience[] })
               </div>
               <div style={{ fontSize: 11, color: "#666", textAlign: "right", flexShrink: 0 }}>
                 <div>{formatDate(exp.startDate)}</div>
-                <div>{exp.current ? "→ Presente" : `→ ${formatDate(exp.endDate!)}`}</div>
+                <div>{exp.current ? "→ Present" : `→ ${formatDate(exp.endDate!)}`}</div>
               </div>
             </div>
 
@@ -88,7 +88,7 @@ export function ExperienceWindow({ experiences }: { experiences: Experience[] })
                   fontSize: 10,
                 }}
               >
-                ● Emprego atual
+                ● Current job
               </div>
             )}
           </div>
@@ -100,7 +100,7 @@ export function ExperienceWindow({ experiences }: { experiences: Experience[] })
         className="w2k-sunken"
         style={{ padding: "1px 6px", fontSize: 10, color: "#444", flexShrink: 0 }}
       >
-        Ln 1, Col 1 · {experiences.length} experiência(s) · Somente leitura
+        Ln 1, Col 1 · {experiences.length} experience(s) · Read-only
       </div>
     </div>
   );

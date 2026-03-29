@@ -35,13 +35,13 @@ export function AchievementsAdmin({ achievements, categories }: {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div><button className="w2k-btn" onClick={() => { setForm(EMPTY); setEditing(null); setShowForm(true); }}>➕ Nova conquista</button></div>
+      <div><button className="w2k-btn" onClick={() => { setForm(EMPTY); setEditing(null); setShowForm(true); }}>➕ New achievement</button></div>
 
       <AdminTable
         columns={[
-          { header: "Título", render: (a) => a.title, width: 200 },
-          { header: "Categoria", render: (a) => a.category.name, width: 120 },
-          { header: "Data", render: (a) => new Date(a.date).toLocaleDateString("pt-BR"), width: 100 },
+          { header: "Title", render: (a) => a.title, width: 200 },
+          { header: "Category", render: (a) => a.category.name, width: 120 },
+          { header: "Date", render: (a) => new Date(a.date).toLocaleDateString("en-US"), width: 100 },
         ]}
         rows={achievements}
         onEdit={handleEdit}
@@ -49,22 +49,22 @@ export function AchievementsAdmin({ achievements, categories }: {
       />
 
       {showForm && (
-        <Dialog title={editing ? "Editar conquista" : "Nova conquista"} onClose={() => setShowForm(false)}>
+        <Dialog title={editing ? "Edit achievement" : "New achievement"} onClose={() => setShowForm(false)}>
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            <Field label="Título *" value={form.title} onChange={(v) => setForm((f) => ({ ...f, title: v }))} required />
-            <Field label="Descrição *" value={form.description} onChange={(v) => setForm((f) => ({ ...f, description: v }))} textarea required />
-            <Field label="Data *" value={form.date} onChange={(v) => setForm((f) => ({ ...f, date: v }))} type="date" required />
+            <Field label="Title *" value={form.title} onChange={(v) => setForm((f) => ({ ...f, title: v }))} required />
+            <Field label="Description *" value={form.description} onChange={(v) => setForm((f) => ({ ...f, description: v }))} textarea required />
+            <Field label="Date *" value={form.date} onChange={(v) => setForm((f) => ({ ...f, date: v }))} type="date" required />
             <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-              <label style={{ width: 90, textAlign: "right", fontSize: 11, flexShrink: 0 }}>Categoria *</label>
+              <label style={{ width: 90, textAlign: "right", fontSize: 11, flexShrink: 0 }}>Category *</label>
               <select className="w2k-input" value={form.categoryId} onChange={(e) => setForm((f) => ({ ...f, categoryId: e.target.value }))} required style={{ flex: 1 }}>
-                <option value="">Selecione...</option>
+                <option value="">Select...</option>
                 {categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
             </div>
             <div className="w2k-separator" />
             <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-              <button type="submit" className="w2k-btn" disabled={pending}>{pending ? "Salvando..." : "Salvar"}</button>
-              <button type="button" className="w2k-btn" onClick={() => setShowForm(false)}>Cancelar</button>
+              <button type="submit" className="w2k-btn" disabled={pending}>{pending ? "Saving..." : "Save"}</button>
+              <button type="button" className="w2k-btn" onClick={() => setShowForm(false)}>Cancel</button>
             </div>
           </form>
         </Dialog>

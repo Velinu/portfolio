@@ -32,13 +32,13 @@ export function PostsAdmin({ posts }: { posts: Post[] }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div><button className="w2k-btn" onClick={() => { setForm(EMPTY); setEditing(null); setShowForm(true); }}>✍️ Novo post</button></div>
+      <div><button className="w2k-btn" onClick={() => { setForm(EMPTY); setEditing(null); setShowForm(true); }}>✍️ New post</button></div>
 
       <AdminTable
         columns={[
-          { header: "Título", render: (p) => p.title, width: 220 },
-          { header: "Status", render: (p) => p.published ? "✅ Publicado" : "📝 Rascunho", width: 100 },
-          { header: "Data", render: (p) => new Date(p.createdAt).toLocaleDateString("pt-BR"), width: 100 },
+          { header: "Title", render: (p) => p.title, width: 220 },
+          { header: "Status", render: (p) => p.published ? "✅ Published" : "📝 Draft", width: 100 },
+          { header: "Date", render: (p) => new Date(p.createdAt).toLocaleDateString("en-US"), width: 100 },
         ]}
         rows={posts}
         onEdit={handleEdit}
@@ -49,20 +49,20 @@ export function PostsAdmin({ posts }: { posts: Post[] }) {
         <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 9999 }}>
           <div className="w2k-raised" style={{ width: "min(700px, 95vw)", background: "var(--w2k-surface)", maxHeight: "90vh", display: "flex", flexDirection: "column" }}>
             <div className="w2k-titlebar-active" style={{ padding: "3px 6px", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
-              <span style={{ color: "#fff", fontWeight: "bold", fontSize: 11 }}>{editing ? "Editar post" : "Novo post"} — Editor Markdown</span>
+              <span style={{ color: "#fff", fontWeight: "bold", fontSize: 11 }}>{editing ? "Edit post" : "New post"} — Markdown Editor</span>
               <button onClick={() => setShowForm(false)} style={{ background: "var(--w2k-surface)", border: "1px solid var(--w2k-dark)", width: 16, height: 14, fontSize: 10, cursor: "default" }}>✕</button>
             </div>
             <div style={{ padding: 16, overflow: "auto", flex: 1 }}>
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 8, height: "100%" }}>
                 <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                  <label style={{ fontSize: 11, flexShrink: 0 }}>Título *</label>
+                  <label style={{ fontSize: 11, flexShrink: 0 }}>Title *</label>
                   <input className="w2k-input" value={form.title} onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))} required style={{ flex: 1 }} />
                 </div>
 
                 {/* Markdown editor */}
                 <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
                   <div style={{ fontSize: 11, display: "flex", gap: 8, alignItems: "center" }}>
-                    <span>Conteúdo * (Markdown)</span>
+                    <span>Content * (Markdown)</span>
                     <div style={{ display: "flex", gap: 2 }}>
                       {["**B**", "*I*", "# H1", "## H2", "- List", "[link](url)"].map((tag) => (
                         <button key={tag} type="button" className="w2k-btn"
@@ -84,13 +84,13 @@ export function PostsAdmin({ posts }: { posts: Post[] }) {
 
                 <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                   <input type="checkbox" id="published" checked={form.published} onChange={(e) => setForm((f) => ({ ...f, published: e.target.checked }))} />
-                  <label htmlFor="published" style={{ fontSize: 11 }}>Publicar imediatamente</label>
+                  <label htmlFor="published" style={{ fontSize: 11 }}>Publish immediately</label>
                 </div>
 
                 <div className="w2k-separator" />
                 <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-                  <button type="submit" className="w2k-btn" disabled={pending}>{pending ? "Salvando..." : "Salvar"}</button>
-                  <button type="button" className="w2k-btn" onClick={() => setShowForm(false)}>Cancelar</button>
+                  <button type="submit" className="w2k-btn" disabled={pending}>{pending ? "Saving..." : "Save"}</button>
+                  <button type="button" className="w2k-btn" onClick={() => setShowForm(false)}>Cancel</button>
                 </div>
               </form>
             </div>
